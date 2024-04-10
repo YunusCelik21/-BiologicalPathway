@@ -2,8 +2,8 @@
 // ID: 22203347
 // Section: 01
 
-#ifndef GENE_H
-#define GENE_H
+#ifndef _GENE_H
+#define _GENE_H
 #include <string>
 using namespace std;
 

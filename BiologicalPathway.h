@@ -2,8 +2,9 @@
 // ID: 22203347
 // Section: 01
 
-#ifndef BIOLOGICAL_PATHWAY_H
-#define BIOLOGICAL_PATHWAY_H
+#ifndef _BIOLOGICAL_PATHWAY_H
+#define _BIOLOGICAL_PATHWAY_H
+#include <string>
 using namespace std;
 
 class BiologicalPathway {

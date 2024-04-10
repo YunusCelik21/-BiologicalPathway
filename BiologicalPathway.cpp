@@ -4,6 +4,8 @@
 
 #include "BiologicalPathway.h"
 #include <iostream>
+#include <string>
+using namespace std;
 
 BiologicalPathway::BiologicalPathway()
 {
