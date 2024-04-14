@@ -6,21 +6,22 @@
 #define _PROTEIN_H
 #include <string>
 #include "Gene.h"
+#include "ListNode.h"
 using namespace std;
 
 class Protein {
 private:
 	int ID;
-	// ListNode<Gene>* genes;
-	int size;
+	ListNode<Gene>* genes;
 
 public:
-	Protein();
 	Protein(int ID);
+	~Protein();
 
+	void print() const;
 	int getID() const;
-	// ListNode<Gene>* getGenes();
-	int getSize() const;
+	ListNode<Gene>* getGenes() const;
+	bool operator<(const Protein& protein) const;
 };
 
 #endif 

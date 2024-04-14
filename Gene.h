@@ -13,11 +13,12 @@ private:
 	string name;
 
 public:
-	Gene();
 	Gene(int ID, string name);
 
+	void print() const;
 	int getID() const;
 	string getName() const;
+	bool operator<(const Gene& gene) const;
 };
 
 #endif 
