@@ -3,21 +3,22 @@
 // Section: 01
 
 #include "Gene.h"
+#include <iostream>
 
-Gene::Gene()
-{
+Gene::Gene(int ID, string name) : ID(ID), name(name) {}
+
+void Gene::print() const {
+    cout << "GENE " << ID << " : " << name << endl;
 }
 
-Gene::Gene(int ID, string name)
-{
+int Gene::getID() const {
+    return ID;
 }
 
-int Gene::getID() const
-{
-    return 0;
+string Gene::getName() const {
+    return name;
 }
 
-string Gene::getName() const
-{
-    return string();
+bool Gene::operator<(const Gene& gene) const {
+    return this->ID < gene.ID;
 }

@@ -21,6 +21,7 @@ public:
 	void print() const;
 	int getID() const;
 	ListNode<Gene>* getGenes() const;
+	string getIDsAsArray() const;
 	bool operator<(const Protein& protein) const;
 };
 

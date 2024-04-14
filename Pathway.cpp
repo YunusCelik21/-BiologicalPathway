@@ -4,15 +4,43 @@
 
 #include "Pathway.h"
 
-Pathway::Pathway()
-{
+Pathway::Pathway(int ID, string name) : ID(ID), name(name), proteins(nullptr) {}
+
+Pathway::~Pathway() {
+    if (proteins)
+        delete proteins;
 }
 
-Pathway::Pathway(int ID)
-{
+void Pathway::print() const {
+    cout << "Pathway" << ID << " : " << name << " (" << size(proteins) << " Proteins) (" << getGenes() << " Genes)" << endl;
 }
 
-int Pathway::getID() const
-{
-    return 0;
+int Pathway::getID() const {
+    return ID;
 }
+
+string Pathway::getName() const {
+    return name;
+}
+
+ListNode<Protein>* Pathway::getProteins() {
+    return proteins;
+}
+
+bool Pathway::operator<(const Pathway& pathway) const {
+    return this->ID < pathway.ID;
+}
+
+int Pathway::getGenes() const {
+    int sum = 0;
+    ListNode<Protein>* protein = proteins;
+
+    while (protein) {
+        sum += size(protein->value.getGenes());
+        protein = protein->next;
+    }
+
+    return sum;
+}
+
+

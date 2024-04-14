@@ -11,16 +11,19 @@ using namespace std;
 class Pathway {
 private:
 	int ID;
+	string name;
 	ListNode<Protein>* proteins;
 
 public:
-	Pathway(int ID);
+	Pathway(int ID, string name);
 	~Pathway();
 
 	void print() const;
 	int getID() const;
+	string getName() const;
 	ListNode<Protein>* getProteins();
-	bool operator<(const Protein& protein) const;
+	bool operator<(const Pathway& Pathway) const;
+	int getGenes() const;
 };
 
 #endif 
