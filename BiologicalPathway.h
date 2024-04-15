@@ -5,10 +5,15 @@
 #ifndef _BIOLOGICAL_PATHWAY_H
 #define _BIOLOGICAL_PATHWAY_H
 #include <string>
+#include "ListNode.h"
+#include "Pathway.h"
 using namespace std;
 
 class BiologicalPathway {
 private:
+	ListNode<Pathway>* pathways;
+	ListNode<Protein>* proteins;
+	ListNode<Gene>* genes;
 
 public:
 	BiologicalPathway();

@@ -22,8 +22,9 @@ public:
 	int getID() const;
 	string getName() const;
 	ListNode<Protein>* getProteins();
-	bool operator<(const Pathway& Pathway) const;
 	int getGenes() const;
+	bool operator<(const Pathway& Pathway) const;
+	bool operator==(const Pathway& pathway) const;
 };
 
 #endif 

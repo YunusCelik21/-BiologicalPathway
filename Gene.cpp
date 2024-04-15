@@ -22,3 +22,7 @@ string Gene::getName() const {
 bool Gene::operator<(const Gene& gene) const {
     return this->ID < gene.ID;
 }
+
+bool Gene::operator==(const Gene& gene) const {
+    return this->ID == gene.ID;
+}

@@ -4,7 +4,6 @@
 
 #include "Protein.h"
 
-
 Protein::Protein(int ID) : ID(ID), genes(nullptr) {}
 
 Protein::~Protein() {
@@ -45,5 +44,9 @@ string Protein::getIDsAsArray() const {
 
 bool Protein::operator<(const Protein& protein) const {
     return this->ID < protein.ID;
+}
+
+bool Protein::operator==(const Protein& protein) const {
+    return this->ID == protein.ID;
 }
 

@@ -19,6 +19,7 @@ public:
 	int getID() const;
 	string getName() const;
 	bool operator<(const Gene& gene) const;
+	bool operator==(const Gene& gene) const;
 };
 
 #endif 

@@ -27,10 +27,6 @@ ListNode<Protein>* Pathway::getProteins() {
     return proteins;
 }
 
-bool Pathway::operator<(const Pathway& pathway) const {
-    return this->ID < pathway.ID;
-}
-
 int Pathway::getGenes() const {
     int sum = 0;
     ListNode<Protein>* protein = proteins;
@@ -43,4 +39,10 @@ int Pathway::getGenes() const {
     return sum;
 }
 
+bool Pathway::operator<(const Pathway& pathway) const {
+    return this->ID < pathway.ID;
+}
 
+bool Pathway::operator==(const Pathway& pathway) const {
+    return this->ID == pathway.ID;
+}

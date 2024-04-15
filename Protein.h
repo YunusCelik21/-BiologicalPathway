@@ -23,6 +23,7 @@ public:
 	ListNode<Gene>* getGenes() const;
 	string getIDsAsArray() const;
 	bool operator<(const Protein& protein) const;
+	bool operator==(const Protein& protein) const;
 };
 
 #endif 
