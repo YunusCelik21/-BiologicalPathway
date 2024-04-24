@@ -22,6 +22,8 @@ public:
 	int getID() const;
 	ListNode<Gene>* getGenes() const;
 	string getIDsAsArray() const;
+	bool addGene(Gene& gene);
+	bool removeGene(const Gene& gene);
 	bool operator<(const Protein& protein) const;
 	bool operator==(const Protein& protein) const;
 };

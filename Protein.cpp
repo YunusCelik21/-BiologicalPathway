@@ -31,15 +31,36 @@ string Protein::getIDsAsArray() const {
     ListNode<Gene>* gene = genes;
 
     while (gene->next) {
-        s += gene->value.getID();
+        s += to_string(gene->value->getID());
         s += ", ";
         gene = gene->next;
     }
 
-    s += gene->value.getID();
+    s += to_string(gene->value->getID());
     s += "]";
 
     return s;
+}
+
+bool Protein::addGene(Gene& gene) {
+    if (contains(genes, gene)) 
+        // TODO: print error msg
+        return false;
+    
+    // TODO: print succsess msg
+    addValue(genes, gene);
+    return true;
+}
+
+bool Protein::removeGene(const Gene& gene) {
+    if (!contains(genes, gene)) 
+        // TODO: print error msg
+        return false;
+    
+
+    // TODO: print succ message
+    removeValue(genes, gene);
+    return true;
 }
 
 bool Protein::operator<(const Protein& protein) const {
@@ -49,4 +70,3 @@ bool Protein::operator<(const Protein& protein) const {
 bool Protein::operator==(const Protein& protein) const {
     return this->ID == protein.ID;
 }
-

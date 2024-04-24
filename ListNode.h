@@ -8,23 +8,23 @@
 
 template<class T>
 struct ListNode {
-	T value;
+	T* value;
 	ListNode<T>* next;
 
-	ListNode(const T& value);
-	ListNode(const T& value, ListNode<T>* next);
+	ListNode(T* value);
+	ListNode(T* value, ListNode<T>* next);
 	~ListNode();
 };
 
 // ---------------
 // implementations
-// ---------------
+// --------------- 
 
 template<class T>
-inline ListNode<T>::ListNode(const T& value) : value(value), next(nullptr) {}
+inline ListNode<T>::ListNode(T* value) : value(value), next(nullptr) {}
 
 template<class T>
-inline ListNode<T>::ListNode(const T& value, ListNode<T>* next) : value(value), next(next) {}
+inline ListNode<T>::ListNode(T* value, ListNode<T>* next) : value(value), next(next) {}
 
 template<class T>
 inline ListNode<T>::~ListNode() {
@@ -38,22 +38,22 @@ inline ListNode<T>::~ListNode() {
 }
 
 template<class T>
-void addValue(ListNode<T>*& head, T value) {
-	if ((head == nullptr) || (value < head->value)) {
+void addValue(ListNode<T>*& head, T& value) {
+	if ((head == nullptr) || (value < *(head->value))) {
 		ListNode<T>* ptr = head;
-		head = new ListNode<T>(value, ptr);
+		head = new ListNode<T>(&value, ptr);
 	}
 	else 
 		addValue(head->next, value);
 }
 
 template<class T>
-bool removeValue(ListNode<T>*& head, T value) {
+bool removeValue(ListNode<T>*& head, const T& value) {
 	if (head == nullptr) {
 		return false;
 	}
 
-	if (head->value == value) {
+	if (*(head->value) == value) {
 		ListNode<T>* del = head;
 		head = head->next;
 		del->next = nullptr;
@@ -64,10 +64,21 @@ bool removeValue(ListNode<T>*& head, T value) {
 
 }
 
+template<class T> 
+bool contains(ListNode<T>* head, const T& value) {
+	while (head) {
+		if (*(head->value) == value)
+			return true;
+		head = head->next;
+	}
+
+	return false;
+}
+
 template<class T>
 void printList(ListNode<T>* head) {
 	while (head) {
-		head->value.print();
+		head->value->print();
 		head = head->next;
 	}
 }

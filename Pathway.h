@@ -23,6 +23,8 @@ public:
 	string getName() const;
 	ListNode<Protein>* getProteins();
 	int getGenes() const;
+	bool addProtein(Protein& protein);
+	bool removeProtein(const Protein& protein);
 	bool operator<(const Pathway& Pathway) const;
 	bool operator==(const Pathway& pathway) const;
 };

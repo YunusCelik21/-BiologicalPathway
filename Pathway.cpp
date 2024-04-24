@@ -32,11 +32,33 @@ int Pathway::getGenes() const {
     ListNode<Protein>* protein = proteins;
 
     while (protein) {
-        sum += size(protein->value.getGenes());
+        sum += size(protein->value->getGenes());
         protein = protein->next;
     }
 
     return sum;
+}
+
+bool Pathway::addProtein(Protein& protein) {
+    if (contains(proteins, protein)) 
+        // TODO: print error message
+        return false;
+    
+
+    // TODO: print error message
+    addValue(proteins, protein);
+    return true;
+}
+
+bool Pathway::removeProtein(const Protein& protein) {
+    if (!contains(proteins, protein)) 
+        // TODO: print error msg
+        return false;
+    
+
+    // TODO: print succ message
+    removeValue(proteins, protein);
+    return true;
 }
 
 bool Pathway::operator<(const Pathway& pathway) const {
