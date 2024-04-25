@@ -20,7 +20,7 @@ public:
 
 	void print() const;
 	int getID() const;
-	ListNode<Gene>* getGenes() const;
+	ListNode<Gene>*& getGenes();
 	string getIDsAsArray() const;
 	bool addGene(Gene& gene);
 	bool removeGene(const Gene& gene);

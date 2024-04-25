@@ -12,8 +12,6 @@ using namespace std;
 class BiologicalPathway {
 private:
 	ListNode<Pathway>* pathways;
-	ListNode<Protein>* proteins;
-	ListNode<Gene>* genes;
 
 public:
 	BiologicalPathway();

@@ -21,8 +21,8 @@ public:
 	void print() const;
 	int getID() const;
 	string getName() const;
-	ListNode<Protein>* getProteins();
-	int getGenes() const;
+	ListNode<Protein>*& getProteins();
+	int getGeneCount() const;
 	bool addProtein(Protein& protein);
 	bool removeProtein(const Protein& protein);
 	bool operator<(const Pathway& Pathway) const;

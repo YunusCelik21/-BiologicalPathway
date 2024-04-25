@@ -28,7 +28,9 @@ inline ListNode<T>::ListNode(T* value, ListNode<T>* next) : value(value), next(n
 
 template<class T>
 inline ListNode<T>::~ListNode() {
-	ListNode<T>* curr = this->next;
+	delete value; 
+	ListNode<T>* curr = next;
+
 	while (curr) {
 		ListNode<T>* temp = curr->next;
 		curr->next = nullptr;
@@ -58,6 +60,7 @@ bool removeValue(ListNode<T>*& head, const T& value) {
 		head = head->next;
 		del->next = nullptr;
 		delete del;
+		return true;
 	}
 	else 
 		return removeValue(head->next, value);

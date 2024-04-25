@@ -19,7 +19,7 @@ int Protein::getID() const {
     return ID;
 }
 
-ListNode<Gene>* Protein::getGenes() const {
+ListNode<Gene>*& Protein::getGenes() {
     return genes;
 }
 
@@ -53,13 +53,13 @@ bool Protein::addGene(Gene& gene) {
 }
 
 bool Protein::removeGene(const Gene& gene) {
-    if (!contains(genes, gene)) 
-        // TODO: print error msg
+    if (!contains(genes, gene)) {
+        std::cout << "Cannot remove gene. There is no gene " << gene.getID() << " encoding protein " << ID << "." << std::endl;
         return false;
-    
-
-    // TODO: print succ message
+    }
+  
     removeValue(genes, gene);
+    std::cout << "Removed gene " << gene.getID() << " from protein " << ID << "." << std::endl;
     return true;
 }
 

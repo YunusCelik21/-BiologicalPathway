@@ -12,7 +12,7 @@ Pathway::~Pathway() {
 }
 
 void Pathway::print() const {
-    cout << "Pathway" << ID << " : " << name << " (" << size(proteins) << " Proteins) (" << getGenes() << " Genes)" << endl;
+    cout << "Pathway " << ID << " : " << name << " (" << size(proteins) << " Proteins) (" << getGeneCount() << " Genes)" << endl;
 }
 
 int Pathway::getID() const {
@@ -23,11 +23,11 @@ string Pathway::getName() const {
     return name;
 }
 
-ListNode<Protein>* Pathway::getProteins() {
+ListNode<Protein>*& Pathway::getProteins() {
     return proteins;
 }
 
-int Pathway::getGenes() const {
+int Pathway::getGeneCount() const {
     int sum = 0;
     ListNode<Protein>* protein = proteins;
 
@@ -51,12 +51,12 @@ bool Pathway::addProtein(Protein& protein) {
 }
 
 bool Pathway::removeProtein(const Protein& protein) {
-    if (!contains(proteins, protein)) 
-        // TODO: print error msg
+    if (!contains(proteins, protein)) {
+        std::cout << "Cannot remove protein. Pathway " << ID << " does not have a protein with ID " << protein.getID() << "." << std::endl;
         return false;
+    }
     
-
-    // TODO: print succ message
+    std::cout << "Removed protein " << protein.getID() << " from pathway " << ID << "." << std::endl;
     removeValue(proteins, protein);
     return true;
 }
